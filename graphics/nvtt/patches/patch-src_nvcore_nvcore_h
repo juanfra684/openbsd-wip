@@ -1,7 +1,7 @@
 $OpenBSD$
 http://trac.wildfiregames.com/browser/ps/trunk/libraries/nvtt/issue176.patch
---- src/nvcore/nvcore.h.orig	Wed Jun 20 23:09:16 2012
-+++ src/nvcore/nvcore.h	Wed Jun 20 23:11:39 2012
+--- src/nvcore/nvcore.h.orig	Mon Oct 22 01:23:38 2012
++++ src/nvcore/nvcore.h	Mon Oct 22 01:26:30 2012
 @@ -38,6 +38,9 @@
  #if defined POSH_OS_LINUX
  #	define NV_OS_LINUX 1
@@ -12,12 +12,12 @@ http://trac.wildfiregames.com/browser/ps/trunk/libraries/nvtt/issue176.patch
  #elif defined POSH_OS_CYGWIN32
  #	define NV_OS_CYGWIN 1
  #elif defined POSH_OS_MINGW
-@@ -158,7 +161,7 @@
+@@ -156,7 +159,7 @@
+ #		error "MSVC: Platform not supported"
+ #	endif
  #elif NV_CC_GNUC
- #	if NV_OS_LINUX
+-#	if NV_OS_LINUX
++#	if NV_OS_LINUX || NV_OS_OPENBSD
  #		include "DefsGnucLinux.h"
--#	elif NV_OS_DARWIN
-+#	elif NV_OS_DARWIN || NV_OS_OPENBSD
+ #	elif NV_OS_DARWIN
  #		include "DefsGnucDarwin.h"
- #	elif NV_OS_MINGW
- #		include "DefsGnucWin32.h"
